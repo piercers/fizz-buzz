@@ -1,0 +1,14 @@
+{
+  "name": "fizz-buzz",
+  "version": "0.0.0",
+  "description": "\"Fizz Buzz\" in TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node index.ts"
+  },
+  "author": "Ryan S Pierce",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  }
+}
