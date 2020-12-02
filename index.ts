@@ -1,12 +1,10 @@
-const log = (value: number, message: string) =>
-    console.log(`[fB] ${value}: ${message}`);
-
 const isMultipleOf = (multiple: number, value: number) =>
     value % multiple === 0;
 
 const messageConfig: [number, string][] = [
     [3, 'Fizz'],
     [5, 'Buzz'],
+    // [10, 'Jazz'],
 ];
 
 interface MessagePartFn {
@@ -24,7 +22,7 @@ const messageForValue = (value: number) =>
 const fizzBuzz = (value = 1) => {
     const message = messageForValue(value);
     if (message) {
-        log(value, message);
+        console.log(`[fB] ${value}: ${message}`);
     }
     if (value < 100) {
         fizzBuzz(value + 1);
