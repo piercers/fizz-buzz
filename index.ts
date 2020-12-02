@@ -4,7 +4,6 @@ const isMultipleOf = (multiple: number, value: number) =>
 const messageConfig: [number, string][] = [
     [3, 'Fizz'],
     [5, 'Buzz'],
-    // [10, 'Jazz'],
 ];
 
 interface MessagePartFn {
@@ -19,12 +18,12 @@ const messageParts: MessagePartFn[] = messageConfig.map(
 const messageForValue = (value: number) =>
     messageParts.reduce((message, part) => `${message}${part(value)}`, '');
 
-const fizzBuzz = (value = 1) => {
+const fizzBuzz = (value = 1, limit = 100) => {
     const message = messageForValue(value);
     if (message) {
         console.log(`[fB] ${value}: ${message}`);
     }
-    if (value < 100) {
+    if (value < limit) {
         fizzBuzz(value + 1);
     }
 };
