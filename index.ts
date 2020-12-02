@@ -1,17 +1,33 @@
-const log = (index: number, message: string) =>
-    console.log(`[fB] ${index}: ${message}`);
+const log = (value: number, message: string) =>
+    console.log(`[fB] ${value}: ${message}`);
 
-const isMultipleOfX = (x: number, value: number) => value % x === 0;
+const isMultipleOf = (multiple: number, value: number) =>
+    value % multiple === 0;
 
-const fizzBuzz = (index = 1) => {
-    const fizz = isMultipleOfX(3, index) ? 'Fizz' : '';
-    const buzz = isMultipleOfX(5, index) ? 'Buzz' : '';
-    const message = `${fizz}${buzz}`;
+const messageConfig: [number, string][] = [
+    [3, 'Fizz'],
+    [5, 'Buzz'],
+];
+
+interface MessagePartFn {
+    (value: number): string;
+}
+
+const messageParts: MessagePartFn[] = messageConfig.map(
+    ([multiple, message]) => (value) =>
+        isMultipleOf(multiple, value) ? message : '',
+);
+
+const messageForValue = (value: number) =>
+    messageParts.reduce((message, part) => `${message}${part(value)}`, '');
+
+const fizzBuzz = (value = 1) => {
+    const message = messageForValue(value);
     if (message) {
-        log(index, message);
+        log(value, message);
     }
-    if (index < 100) {
-        fizzBuzz(index + 1);
+    if (value < 100) {
+        fizzBuzz(value + 1);
     }
 };
 
