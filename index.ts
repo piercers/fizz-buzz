@@ -18,11 +18,9 @@ const parts: MessagePartFn[] = config.map(
 const messageForValue = (value: number) =>
     parts.reduce((message, part) => `${message}${part(value)}`, '');
 
-const fizzBuzz = (value = 1, limit = 100) => {
+export const fizzBuzz = (value = 1, limit = 100) => {
     const message = messageForValue(value);
-    if (message) {
-        console.log(`[fB] ${value}: ${message}`);
-    }
+    console.log(message || value);
     if (value < limit) {
         fizzBuzz(value + 1);
     }
