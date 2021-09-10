@@ -2,7 +2,7 @@
   "name": "fizz-buzz",
   "version": "0.0.3",
   "description": "\"Fizz Buzz\" in TypeScript.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "npx ts-node index.ts",
     "test": "npx jasmine-ts --config=jasmine.json"
